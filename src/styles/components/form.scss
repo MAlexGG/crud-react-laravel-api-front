@@ -1,0 +1,34 @@
+.ct-form {
+    @include displayFlex;
+    justify-content: flex-start;
+    margin-top: 15px;
+}
+
+.form-create {
+    @include displayFlex;
+    margin-left: 15px;
+}
+
+.inpt-create {
+    margin: 5px 5px 0px 0px;
+}
+
+.bt-form-send {
+    margin: 5px 5px 0px 0px;
+    background-color: $colorPrincipal;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    width: 70px;
+    height: 21px;
+}
+
+.bt-form-reset {
+    margin: 5px 5px 0px 0px;
+    background-color: white;
+    border: 1px solid $colorPrincipal;
+    border-radius: 2px;
+    color: $colorPrincipal;
+    width: 70px;
+    height: 21px;
+}

@@ -1,0 +1,37 @@
+.ct-header {
+    @include displayFlex();
+    width: 100vw;
+    height: 53px;
+    background-color: $colorSecondary;
+    justify-content: space-between;
+}
+
+.img-logo {
+    filter: $filterPrincipal;
+    width: 50%;
+    margin-left: 20%;
+}
+
+.txtColor1 {
+    font-size: 1.5rem;
+    color: $colorPrincipal;
+    text-decoration: none;
+    margin-right: 5%;
+}
+
+.txtColor2 {
+    font-size: 1.5rem;
+    color: gray;
+    text-decoration: none;
+    margin-right: 5%;
+}
+
+.txt-title {
+    color: $colorPrincipal;
+    margin: 5px 0px 0px 20px;
+}
+
+.txt-subtitle {
+    color: $colorPrincipal;
+    margin: 5px 0px 0px 20px;
+}
