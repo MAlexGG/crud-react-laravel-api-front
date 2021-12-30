@@ -3,7 +3,7 @@
     width: 100vw;
     height: 53px;
     background-color: $colorSecondary;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .img-logo {
@@ -16,14 +16,12 @@
     font-size: 1.5rem;
     color: $colorPrincipal;
     text-decoration: none;
-    margin-right: 5%;
 }
 
 .txtColor2 {
     font-size: 1.5rem;
     color: gray;
     text-decoration: none;
-    margin-right: 5%;
 }
 
 .txt-title {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CrudCard from './crudCards';
+import CrudCards from './crudCards';
 import CrudForm from './crudForm';
 
 const initialDB = [
@@ -48,7 +48,7 @@ const Crud = () => {
         <div>
             <h2 className='txt-title'>CRUD using the browser memory</h2>
             <CrudForm createData={createData} updateData={updateData} editData={editData} setEditData={setEditData}/>
-            <CrudCard data={db} setEditData={setEditData} deleteData={deleteData}/>
+            <CrudCards data={db} setEditData={setEditData} deleteData={deleteData}/>
         </div>
     )
 }
