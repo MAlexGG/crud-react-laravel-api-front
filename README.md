@@ -9,7 +9,7 @@ Different ways to make a crud and consume information in react.js
 ***
 ## General Info
 
-This is a pedagogical page for learning how to read a json file, to make a fake CRUD using the browser memory, to make a CRUD with json server using fetch Api and to make a CRUD with json server using Axios Library and the use of hooks.
+This is a pedagogical responsive website for learning how to read a json file, to make a fake CRUD using the browser memory, to make a CRUD with json server using fetch Api and to make a CRUD with json server using Axios Library and the use of hooks.
 
 ### UI Design
 ![Crud-React-UI](https://user-images.githubusercontent.com/73828751/147887251-cc96092e-6ebf-47d1-974d-61814f38b6e4.jpg)
