@@ -3,18 +3,22 @@ import Navbar from '../navbar';
 import axios from 'axios';
 import CrudAxiosCard from './crudAxiosCard';
 import CrudAxiosForm from './crudAxiosForm';
+import { Loader } from './loader';
 
 const crudAxios = () => {
 
     const [cards, setCards] = useState([]);
     const [editData, setEditData] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     let url = "http://localhost:5001/cards";
 
     useEffect(() => {
+        setLoading(true);
         getData().then((res) => {
             setCards(res.data);
-        })
+            setLoading(false);
+        }) 
     }, [url]);
 
     const getData = async () => {
@@ -55,9 +59,10 @@ const crudAxios = () => {
 
     return (
         <div>
-            <Navbar txtColor="txtColor2" />
+            <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor1" />
             <h2 className='txt-title'>CRUD with axios and json server</h2>
-            <CrudAxiosForm createData={createData} editData={editData} setEditData={setEditData} updateData={updateData}/>
+            <CrudAxiosForm createData={createData} editData={editData} setEditData={setEditData} updateData={updateData} />
+            {loading && <Loader />}
             <div className="ct-cards">
             {
                 cards.map((card, index) => (

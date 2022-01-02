@@ -4,6 +4,9 @@
     height: 53px;
     background-color: $colorSecondary;
     justify-content: space-evenly;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
 }
 
 .img-logo {
@@ -26,7 +29,7 @@
 
 .txt-title {
     color: $colorPrincipal;
-    margin: 5px 0px 0px 20px;
+    margin: 5% 0px 0px 20px;
 }
 
 .txt-subtitle {

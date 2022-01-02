@@ -10,7 +10,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Navbar txtColor="txtColor1" />
+                <Navbar txtColor1="txtColor1" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" />
                 <h2 className="txt-title">Photos - Reading a json file</h2>
                 <Cards data={this.state.cards}/>
             </div>

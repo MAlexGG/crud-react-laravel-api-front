@@ -19,7 +19,6 @@ const CrudApi = () => {
     useEffect(() => {
         setLoading(true);
         api.get(url).then((res) => {
-            //console.log(res);
             if (!res.err) {
                 setDB(res);
                 setError(null);
@@ -39,7 +38,6 @@ const CrudApi = () => {
         };
 
         api.post(url, options).then((res) => {
-            //console.log(res);
             if (!res.err) {
                 setDB([...db, res]) 
             } else {
@@ -92,7 +90,7 @@ const CrudApi = () => {
 
     return (
         <div>
-            <Navbar txtColor="txtColor2" />
+            <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor1" txtColor4="txtColor2" />
             <h2 className='txt-title'>CRUD with fetch and json server</h2>
             <CrudApiForm createData={createData} updateData={updateData} editData={editData} setEditData={setEditData} />
             {loading && <Loader />}
