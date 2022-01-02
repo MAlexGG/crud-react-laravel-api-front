@@ -80,3 +80,12 @@ $breakpointLarge: 992px;
         height: auto;
     }
 }
+
+@mixin txtColor {
+    font-size: 0.8rem;
+    text-decoration: none;
+    @media (min-width: $breakpointMedium) {
+        font-size: 1.5rem;
+        text-decoration: none;
+    }
+}
