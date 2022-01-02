@@ -21,8 +21,8 @@ class Card extends Component {
                                 <button className="bt-ico"><img className="img-ico" src={eye} alt="show button"/></button>
                             </div>
                             <div className="ct-icons-modify">
-                                <button className="bt-ico"><img className="img-ico" src={edit} alt="edit button"/></button>
-                                <button className="bt-ico"><img className="img-ico" src={del} alt="delete button"/></button>
+                                <button className="bt-ico" style={{visibility: "hidden"}}><img className="img-ico" src={edit} alt="edit button"/></button>
+                                <button className="bt-ico" style={{visibility: "hidden"}}><img className="img-ico" src={del} alt="delete button"/></button>
                             </div>
                         </div>
                     <div className="ct-txt">
