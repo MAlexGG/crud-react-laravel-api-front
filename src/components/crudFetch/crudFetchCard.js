@@ -5,7 +5,7 @@ import eye from "../../assets/ico/eye.svg";
 import edit from "../../assets/ico/edit.svg";
 import del from "../../assets/ico/delete.svg";
 
-const CrudApiCard = ({ el, setEditData, deleteData }) => {
+const CrudFetchCard = ({ el, setEditData, deleteData }) => {
     
     let { imgName, imgUser, imgURL, id } = el; 
 
@@ -37,4 +37,4 @@ const CrudApiCard = ({ el, setEditData, deleteData }) => {
     )
 }
 
-export default CrudApiCard;
+export default CrudFetchCard;

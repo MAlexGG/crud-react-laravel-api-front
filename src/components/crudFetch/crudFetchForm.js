@@ -7,7 +7,7 @@ const initialForm = {
     id: null
 };
 
-const CrudApiForm = ({createData, updateData, editData, setEditData}) => {
+const CrudFetchForm = ({createData, updateData, editData, setEditData}) => {
 
     const [form, setForm] = useState(initialForm);
 
@@ -84,4 +84,4 @@ const CrudApiForm = ({createData, updateData, editData, setEditData}) => {
     )
 }
 
-export default CrudApiForm;   
+export default CrudFetchForm;   
