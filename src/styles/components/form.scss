@@ -1,16 +1,13 @@
 .ct-form {
-    @include displayFlex;
-    justify-content: flex-start;
-    margin-top: 15px;
+    @include ctForm;
 }
 
 .form-create {
-    @include displayFlex;
-    margin-left: 15px;
+    @include formCreate;
 }
 
 .inpt-create {
-    margin: 5px 5px 0px 0px;
+    @include inptCreate;
 }
 
 .bt-form-send {

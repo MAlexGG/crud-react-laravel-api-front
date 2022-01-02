@@ -77,8 +77,10 @@ const CrudForm = ({createData, updateData, editData, setEditData}) => {
                     value={form.imgURL}
                     className='inpt-create'
                 />
-                <input type="submit" value="send" className='bt-form-send' />
-                <input type="reset" value="reset" onClick={handleReset} className='bt-form-reset' />
+                <div className='bt-group'>
+                    <input type="submit" value="send" className='bt-form-send' />
+                    <input type="reset" value="reset" onClick={handleReset} className='bt-form-reset' />
+                </div>
             </form>
         </div>
     )

@@ -32,6 +32,5 @@
 }
 
 .txt-subtitle {
-    color: $colorPrincipal;
-    margin: 5px 0px 0px 20px;
+    @include txtSubtitle;
 }

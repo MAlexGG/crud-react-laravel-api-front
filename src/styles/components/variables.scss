@@ -28,11 +28,55 @@ $breakpointLarge: 992px;
 
 @mixin txtTitle {
     color: $colorPrincipal;
-    margin: 16% 0px 0px 20px;
+    margin: 16% 0px 0px 0px;
+    text-align: center;
+    font-size: 1.1rem;
     @media (min-width: $breakpointMedium) {
         margin: 8% 0px 0px 20px;
+        text-align: start;
+        font-size: 1.5rem;
     }
     @media (min-width: $breakpointLarge) {
         margin: 5% 0px 0px 20px;
+        text-align: start;
+        font-size: 1.5rem;
+    }
+}
+
+@mixin txtSubtitle {
+    color: $colorPrincipal;
+    margin: 5px 0px 0px 0px;
+    @media (min-width: $breakpointMedium) {
+        margin: 5px 0px 0px 20px;
+    }
+}
+
+@mixin ctForm {
+    @include displayFlex();
+    flex-direction: column;
+    @media (min-width: $breakpointMedium) {
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-top: 15px;
+    }
+}
+
+@mixin formCreate {
+    @include displayFlex();
+    flex-direction: column;
+    @media (min-width: $breakpointMedium) {
+        flex-direction: row;
+        margin-left: 15px;
+    }
+}
+
+@mixin inptCreate {
+    margin: 10px 0px 0px 0px;
+    width: 300px;
+    height: 25px;
+    @media (min-width: $breakpointMedium) {
+        margin: 5px 5px 0px 0px;
+        width: auto;
+        height: auto;
     }
 }
