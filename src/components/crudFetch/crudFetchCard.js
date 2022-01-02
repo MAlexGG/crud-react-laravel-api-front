@@ -23,7 +23,7 @@ const CrudFetchCard = ({ el, setEditData, deleteData }) => {
                                 <button className="bt-ico"><img className="img-ico" src={eye} alt="show button"/></button>
                             </div>
                             <div className="ct-icons-modify">
-                                <button className="bt-ico" onClick={() => setEditData(el)}><img className="img-ico" src={edit} alt="edit button"/></button>
+                                <button className="bt-ico" onClick={() => setEditData(el)}><img className="img-ico" src={edit} alt="edit button" onClick={window.scrollTo(0, 0)}/></button>
                                 <button className="bt-ico" onClick={() => deleteData(id)}><img className="img-ico" src={del} alt="delete button"/></button>
                             </div>
                         </div>
