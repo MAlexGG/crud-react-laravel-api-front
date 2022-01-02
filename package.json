@@ -19,7 +19,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "fake-api": "json-server --watch src/assets/data/db.json --port 5000",
+        "crud-fetch": "json-server --watch src/assets/data/db.json --port 5000",
         "crud-axios": "json-server --watch src/assets/data/dbAxios.json --port 5001"
     },
     "browserslist": {
