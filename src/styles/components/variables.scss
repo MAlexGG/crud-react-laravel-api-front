@@ -2,8 +2,37 @@ $colorPrincipal: #1664A4;
 $colorSecondary: #F4F4F4;
 $colorCard: #C2DCDE;
 $filterPrincipal: invert(26%) sepia(19%) saturate(6454%) hue-rotate(189deg) brightness(99%) contrast(83%);
+$breakpointSmall: 576px;
+$breakpointMedium: 768px;
+$breakpointLarge: 992px;
 @mixin displayFlex {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin ctCards {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: 380px;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem;
+    @media (min-width: $breakpointMedium) {
+        grid-template-columns: 300px 300px;
+    }
+    @media (min-width: $breakpointLarge) {
+        grid-template-columns: 300px 300px 300px 300px;
+    }
+}
+
+@mixin txtTitle {
+    color: $colorPrincipal;
+    margin: 16% 0px 0px 20px;
+    @media (min-width: $breakpointMedium) {
+        margin: 8% 0px 0px 20px;
+    }
+    @media (min-width: $breakpointLarge) {
+        margin: 5% 0px 0px 20px;
+    }
 }

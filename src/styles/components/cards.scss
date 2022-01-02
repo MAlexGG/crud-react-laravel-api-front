@@ -1,10 +1,5 @@
 .ct-cards {
-    display: grid;
-    grid-template-columns: 300px 300px 300px 300px;
-    grid-template-rows: 380px;
-    gap: 1rem;
-    justify-content: center;
-    margin: 1rem;
+    @include ctCards;
 }
 
 .ct-card {
