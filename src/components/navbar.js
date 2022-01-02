@@ -10,7 +10,8 @@ class Navbar extends Component{
                 {/* <Link to="/"><img className="img-logo" src={logo} alt="logo" /></Link> */}
                 <Link to="/" className={this.props.txtColor}>READ-JSON</Link>
                 <Link to="/fake-crud" className={this.props.txtColor}>FAKE-CRUD</Link>
-                <Link to="/crud-api" className={this.props.txtColor}>CRUD-API</Link>
+                <Link to="/crud-fetch" className={this.props.txtColor}>CRUD-FETCH</Link>
+                <Link to="/crud-axios" className={this.props.txtColor}>CRUD-AXIOS</Link>
             </div>
         )
     }

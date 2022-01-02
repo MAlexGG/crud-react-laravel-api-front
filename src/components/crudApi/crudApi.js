@@ -39,7 +39,7 @@ const CrudApi = () => {
         };
 
         api.post(url, options).then((res) => {
-            console.log(res);
+            //console.log(res);
             if (!res.err) {
                 setDB([...db, res]) 
             } else {
@@ -93,7 +93,7 @@ const CrudApi = () => {
     return (
         <div>
             <Navbar txtColor="txtColor2" />
-            <h2 className='txt-title'>CRUD API with fetch and json server</h2>
+            <h2 className='txt-title'>CRUD with fetch and json server</h2>
             <CrudApiForm createData={createData} updateData={updateData} editData={editData} setEditData={setEditData} />
             {loading && <Loader />}
             <div className="ct-message">
