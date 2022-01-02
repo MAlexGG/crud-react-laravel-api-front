@@ -7,14 +7,17 @@ const initialForm = {
     id: null
 };
 
-const CrudAxiosForm = ({createData}) => {
+const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
 
     const [form, setForm] = useState(initialForm);
 
     useEffect(() => {
-        setForm(initialForm);
-    }, [])
-
+        if (editData) {
+            setForm(editData);
+        } else {
+            setForm(initialForm);
+        }
+    }, [editData])
 
     const handleChange = (e) => {
         setForm({
@@ -31,7 +34,9 @@ const CrudAxiosForm = ({createData}) => {
         }
 
         if (form.id === null) {
-            createData(form)
+            createData(form);
+        } else {
+            updateData(form);
         }
 
         handleReset();
@@ -39,13 +44,13 @@ const CrudAxiosForm = ({createData}) => {
     
     const handleReset = (e) => {
         setForm(initialForm);
-        /* setEditData(null); */
+        setEditData(null);
     } 
     
 
     return (
         <div className='ct-form'>
-            <h3 className='txt-subtitle'>Add an Image</h3>
+            <h3 className='txt-subtitle'>{ editData ? "Edit an Image" : "Add an Image"}</h3>
             <form onSubmit={handleSubmit} className='form-create'>
                 <input
                     type="text"

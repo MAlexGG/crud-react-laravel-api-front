@@ -35,7 +35,7 @@ const CrudApiForm = ({createData, updateData, editData, setEditData}) => {
         }
 
         if (form.id === null) {
-            createData(form)
+            createData(form);
         } else {
             updateData(form);
         }
