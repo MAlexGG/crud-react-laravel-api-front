@@ -32,3 +32,11 @@
 .txt-subtitle {
     @include txtSubtitle;
 }
+
+.nav-item:active {
+    background-color: $colorPrincipal !important;
+}
+
+.nav-item {
+    color: gray !important;
+}

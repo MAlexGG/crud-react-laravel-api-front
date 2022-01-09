@@ -14,8 +14,8 @@
     },
     {
       "id": 3,
-      "imgName": "Full Moon",
-      "imgUser": "Andre",
+      "imgName": "Mr. Moonlight",
+      "imgUser": "Ale",
       "imgURL": "moon"
     },
     {
@@ -47,12 +47,6 @@
       "imgName": "Aurora Borealis in Norway",
       "imgUser": "María",
       "imgURL": "aurora"
-    },
-    {
-      "imgName": "Mr. moonlight",
-      "imgUser": "Alex",
-      "imgURL": "moon",
-      "id": 1640086470582
     }
   ]
 }

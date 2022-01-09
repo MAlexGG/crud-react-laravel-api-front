@@ -54,7 +54,7 @@ $breakpointLarge: 992px;
 @mixin ctForm {
     @include displayFlex();
     flex-direction: column;
-    @media (min-width: $breakpointMedium) {
+    @media (min-width: $breakpointLarge) {
         flex-direction: row;
         justify-content: flex-start;
         margin-top: 15px;
@@ -64,7 +64,7 @@ $breakpointLarge: 992px;
 @mixin formCreate {
     @include displayFlex();
     flex-direction: column;
-    @media (min-width: $breakpointMedium) {
+    @media (min-width: $breakpointLarge) {
         flex-direction: row;
         margin-left: 15px;
     }
@@ -84,6 +84,8 @@ $breakpointLarge: 992px;
 @mixin txtColor {
     font-size: 0.8rem;
     text-decoration: none;
+    background: transparent;
+    border: none;
     @media (min-width: $breakpointMedium) {
         font-size: 1.5rem;
         text-decoration: none;

@@ -90,7 +90,7 @@ const CrudFetch = () => {
 
     return (
         <div>
-            <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor1" txtColor4="txtColor2" />
+            <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor1" txtColor4="txtColor2" txtColor5="txtColor2" />
             <h2 className='txt-title'>CRUD with fetch and json server</h2>
             <CrudFetchForm createData={createData} updateData={updateData} editData={editData} setEditData={setEditData} />
             {loading && <Loader />}
