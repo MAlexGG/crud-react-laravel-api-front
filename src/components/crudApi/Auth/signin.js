@@ -39,16 +39,7 @@ function Signin() {
                 setRegister({...register, error_list: error.response.data.msg})
             });
         }, [])
-        
-        
-        /* axios.get('/sanctum/csrf-cookie').then(res => {
-            axios.post('/api/register', data).then(res => {
-                console.log(res.data.msg)
-            }).catch(error => console.log(error.response.data.res));
-        }, []) */
-
     }
-
 
     return (
         <div>

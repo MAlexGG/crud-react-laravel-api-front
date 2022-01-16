@@ -1,7 +1,45 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useState} from 'react';
 import Navbar from '../../navbar';
 
+const initialLogin = {
+    email: "",
+    password: "",
+    error_list: []
+};
+
 function Login() {
+
+    const [login, setLogin] = useState(initialLogin);
+
+    const handleInput = (e) => {
+        e.persist();
+        setLogin({
+            ...login,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    const loginSubmit = (e) => {
+        e.preventDefault();
+
+        const data = {
+            email: login.email,
+            password: login.password
+        }
+
+        axios.get('/sanctum/csrf-cookie').then(res => {
+            axios.post('/api/login', data).then(res => {
+                localStorage.setItem('auth_token', res.data.msg.token);
+                localStorage.setItem('auth_user', res.data.msg.user.name);
+                alert(res.data.msg.msg);
+                window.location = '/crud-api';
+            }).catch(error => {
+                setLogin({...login, error_list:error.response.data.msg})
+            });
+        }, [])
+    }
+
     return (
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1"/>
@@ -14,14 +52,17 @@ function Login() {
                                 <h5 className='txt-title-form'>Please fill the form for log in</h5>
                             </div>
                             <div className='card-body'>
-                                <form>
+                                <form onSubmit={loginSubmit}>
+                                    <span className='error-register'>{login.error_list.msg}</span>
                                     <div className='form-group mb-3'>
                                         <label className='txt-label-form'>Email</label>
-                                        <input type="" name='email' className='form-control' value='' />
+                                        <input type="email" name='email' onChange={handleInput} value={login.email} className='form-control' />
+                                        <span className='error-register'>{login.error_list.email}</span>
                                     </div>
                                     <div className='form-group mb-3'>
                                         <label className='txt-label-form'>Password</label>
-                                        <input type="" name='password' className='form-control' value='' />
+                                        <input type="password" name='password' onChange={handleInput} value={login.password} className='form-control' />
+                                        <span className='error-register'>{login.error_list.password}</span>
                                     </div>
                                     <div className='form-group mb-3'>
                                         <button type='submit' className='bt-form-send'>Log-in</button>
