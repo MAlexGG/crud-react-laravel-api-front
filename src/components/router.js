@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "../App";
 import CrudFetch from "./crudFetch/crudFetch";
 import CrudAxios from "./crudAxios/crudAxios";
@@ -9,6 +9,14 @@ import Signin from "./crudApi/Auth/signin";
 import Login from "./crudApi/Auth/login";
 
 function Router() {
+
+    const AuthRoute = ({ children }) => {
+        if (localStorage.getItem('auth_token')) {
+            return <Navigate to="/crud-api" />
+        }
+        return children
+    };    
+
     return (
         <BrowserRouter>
             <Routes>
@@ -17,8 +25,8 @@ function Router() {
                 <Route path="/crud-fetch" element={<CrudFetch />} />
                 <Route path="/crud-axios" element={<CrudAxios />} />
                 <Route path="/crud-api" element={<HomeApi />} />
-                <Route path="/crud-api-signin" element={<Signin/>} />
-                <Route path="/crud-api-login" element={<Login/>} />
+                <Route path="/crud-api-signin" element={<AuthRoute><Signin/></AuthRoute>} />
+                <Route path="/crud-api-login" element={<AuthRoute><Login /></AuthRoute>} />
             </Routes>
     </BrowserRouter>
     )
