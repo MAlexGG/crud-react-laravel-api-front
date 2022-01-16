@@ -22,7 +22,7 @@
 
 .txtColor2 {
     @include txtColor;
-    color: gray;
+    color: $colorTertiary;
 }
 
 .txt-title {
@@ -38,5 +38,5 @@
 }
 
 .nav-item {
-    color: gray !important;
+    color: $colorTertiary !important;
 }

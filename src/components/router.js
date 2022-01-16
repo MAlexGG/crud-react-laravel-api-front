@@ -8,7 +8,6 @@ import HomeApi from "./crudApi/homeApi";
 import Signin from "./crudApi/Auth/signin";
 import Login from "./crudApi/Auth/login";
 
-
 function Router() {
     return (
         <BrowserRouter>

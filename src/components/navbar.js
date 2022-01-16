@@ -17,8 +17,8 @@ class Navbar extends Component{
                             CRUD-API
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <Link to="/crud-api-signin"><li><a className="dropdown-item nav-item" href="#">SIGN-IN</a></li></Link>
-                        <Link to="/crud-api-login"><li><a className="dropdown-item nav-item" href="#">LOG-IN</a></li></Link>
+                        <Link to="/crud-api-signin" className="text-decoration-none"><li><a className="dropdown-item nav-item" href="#">SIGN-IN</a></li></Link>
+                        <Link to="/crud-api-login" className="text-decoration-none"><li><a className="dropdown-item nav-item" href="#">LOG-IN</a></li></Link>
                     </ul>
                 </div>
             </div>
