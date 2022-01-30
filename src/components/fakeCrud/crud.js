@@ -36,13 +36,12 @@ const Crud = () => {
     const deleteData = (id) => {
         let isDelete = window.confirm(`Do you really want to delete the image with id: ${id}?`);
         if (isDelete) {
-        let newData = db.filter(el => el.id !== id);
-        setDB(newData);
-        } else {
-        return;
+            let newData = db.filter(el => el.id !== id);
+            setDB(newData);
+            } else {
+                return;
         };
     };
-
 
     return (
         <div>

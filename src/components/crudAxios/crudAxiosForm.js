@@ -17,14 +17,14 @@ const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
         } else {
             setForm(initialForm);
         }
-    }, [editData])
+    }, [editData]);
 
     const handleChange = (e) => {
         setForm({
             ...form,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
-    }
+    };
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,12 +40,12 @@ const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
         }
 
         handleReset();
-    }
+    };
     
-    const handleReset = (e) => {
+    const handleReset = () => {
         setForm(initialForm);
         setEditData(null);
-    } 
+    }; 
     
 
     return (
