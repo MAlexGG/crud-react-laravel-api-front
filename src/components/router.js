@@ -7,6 +7,7 @@ import FakeCrud from "./fakeCrud/fakeCrud";
 import HomeApi from "./crudApi/homeApi";
 import Signin from "./crudApi/Auth/signin";
 import Login from "./crudApi/Auth/login";
+import Create from "./crudApi/create";
 
 function Router() {
 
@@ -17,6 +18,13 @@ function Router() {
         return children
     };    
 
+    const AuthCrud = ({ children }) => {
+        if (!localStorage.getItem('auth_token')) {
+            return <Navigate to="/crud-api-login" />
+        }
+        return children
+    };  
+
     return (
         <BrowserRouter>
             <Routes>
@@ -24,12 +32,15 @@ function Router() {
                 <Route path="/fake-crud" element={<FakeCrud />} />
                 <Route path="/crud-fetch" element={<CrudFetch />} />
                 <Route path="/crud-axios" element={<CrudAxios />} />
-                <Route path="/crud-api" element={<HomeApi />} />
+
+                <Route path="/crud-api" element={<AuthCrud><HomeApi /></AuthCrud>} />
                 <Route path="/crud-api-signin" element={<AuthRoute><Signin/></AuthRoute>} />
                 <Route path="/crud-api-login" element={<AuthRoute><Login /></AuthRoute>} />
+                <Route path="/crud-api-create" element={<AuthCrud><Create/></AuthCrud>}/>
             </Routes>
     </BrowserRouter>
     )
 } 
    
 export default Router;
+
