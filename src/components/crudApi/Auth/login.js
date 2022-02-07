@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, {useState} from 'react';
 import Navbar from '../../navbar';
+import { serviceApi } from '../../../services/serviceApi';
+import { useNavigate } from 'react-router-dom';
 
 const initialLogin = {
     email: "",
@@ -12,6 +14,9 @@ function Login() {
 
     const [login, setLogin] = useState(initialLogin);
     //const [user, setUser] = useState(null);
+    let navigate = useNavigate();
+
+    let api = serviceApi();
     
     const handleInput = (e) => {
         e.persist();
@@ -30,12 +35,12 @@ function Login() {
         }
 
         axios.get('/sanctum/csrf-cookie').then(res => {
-            axios.post('/api/login', data).then(res => {
+            api.login(data).then(res => {
                 localStorage.setItem('auth_token', res.data.msg.token);
                 localStorage.setItem('auth_user', res.data.msg.user.name);
                 //setUser(res.data.msg.user.name);
                 alert(res.data.msg.msg);
-                window.location = '/crud-api';
+                navigate('/crud-api', { replace: true });
             }).catch(error => {
                 setLogin({...login, error_list:error.response.data.msg})
             });
@@ -52,7 +57,7 @@ function Login() {
                         <div className='card'>
                             <div className='card-header'>
                                 <h5 className='txt-title-form'>Please fill the form for log in</h5>
-                                <span>{user}</span>
+                                {/* <span>{user}</span> */}
                             </div>
                             <div className='card-body'>
                                 <form onSubmit={loginSubmit}>

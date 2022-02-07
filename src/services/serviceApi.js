@@ -13,6 +13,8 @@ axios.interceptors.request.use(function (config) {
 export const serviceApi = () => {
 
     let url = '/api/cards';
+    let urlSignin = '/api/register';
+    let urlLogin = '/api/login';
     
     const get = async () => {
         const res = await axios.get(url);
@@ -36,11 +38,23 @@ export const serviceApi = () => {
         return res;
     };
 
+    const signin = async (data) => {
+        const res = await axios.post(urlSignin, data);
+        return res;
+    };
+
+    const login = async (data) => {
+        const res = await axios.post(urlLogin, data);
+        return res;
+    }
+
     return {
         get,
         create,
         destroy,
         update,
+        signin,
+        login,
         url
     };
 }

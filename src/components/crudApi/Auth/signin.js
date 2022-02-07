@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, {useState} from 'react';
 import Navbar from '../../navbar';
+import { serviceApi } from '../../../services/serviceApi';
+import { useNavigate } from 'react-router-dom';
 
 
  const initialRegister = {
@@ -12,7 +14,10 @@ import Navbar from '../../navbar';
 
 function Signin() {
 
-    const [register, setRegister] = useState(initialRegister)
+    const [register, setRegister] = useState(initialRegister);
+    let navigate = useNavigate();
+
+    let api = serviceApi();
 
     const handleInput = (e) => {
         e.persist();
@@ -31,10 +36,10 @@ function Signin() {
         }
 
         axios.get('/sanctum/csrf-cookie').then(res => {
-            axios.post('/api/register', data).then(res => {
+            api.signin(data).then(res => {
                 setRegister({ ...register, data });
                 alert(res.data.msg);
-                window.location = '/crud-api-login';
+                navigate('/crud-api-login', { replace: true });
             }).catch(error => {
                 setRegister({...register, error_list: error.response.data.msg})
             });
