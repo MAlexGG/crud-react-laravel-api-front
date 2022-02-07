@@ -3,7 +3,7 @@ import Navbar from '../navbar';
 import CrudAxiosCard from './crudAxiosCard';
 import CrudAxiosForm from './crudAxiosForm';
 import { Loader } from './loader';
-import { helpAxios } from '../../helpers/helpAxios';
+import { serviceAxios } from '../../services/serviceAxios';
 
 const crudAxios = () => {
 
@@ -11,8 +11,7 @@ const crudAxios = () => {
     const [editData, setEditData] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    let api = helpAxios();
-    let url = "http://localhost:5001/cards";
+    let api = serviceAxios();
 
     useEffect(() => {
         setLoading(true);
@@ -20,12 +19,12 @@ const crudAxios = () => {
             setCards(res.data);
             setLoading(false);
         }) 
-    }, [url]);
+    }, [api.url]);
 
-    const getData = api.get(url);
+    const getData = api.get();
 
     const createData = (data) => {
-        api.create(url, data).then((res) => {
+        api.create(data).then((res) => {
             if (res.status === 201) {
                 setCards([...cards, res.data]);
             }
@@ -35,7 +34,7 @@ const crudAxios = () => {
     const deleteData = (id) => {
         let isDelete = window.confirm(`Do you really want to delete the image with id: ${id}?`);
         if (isDelete) {
-            api.destroy(url, id).then((res) => {
+            api.destroy(id).then((res) => {
                 if (res.status === 200) {
                     let newData = cards.filter(el => el.id !== id);
                     setCards(newData);
@@ -45,13 +44,13 @@ const crudAxios = () => {
     };
 
     const updateData = (data) => {
-        api.update(url, data).then((res) => {
+        api.update(data).then((res) => {
             if (res.status === 200) {
                 let newData = cards.map(el => el.id === data.id ? data : el);
                 setCards(newData);
             }
         })
-    };
+    }; 
 
     return (
         <div>

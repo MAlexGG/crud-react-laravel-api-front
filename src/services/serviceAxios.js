@@ -1,33 +1,36 @@
 import axios from "axios";
 
-export const helpAxios = () => {
+export const serviceAxios = () => {
     
-    const get = async (url) => {
+    let url = "http://localhost:5001/cards";
+    
+    const get = async () => {
         const res = await axios.get(url);
         return res;
     };
 
-    const create = async (url, data) => {
+    const create = async (data) => {
         const res = await axios.post(url, data);
         return res;
     };
 
-    const destroy = async (url, id) => {
+    const destroy = async (id) => {
         let urlID = `${url}/${id}`;
         const res = await axios.delete(urlID);
         return res;
     };
 
-    const update = async (url, data) => {
+    const update = async (data) => {
         let urlID = `${url}/${data.id}`;
         const res = await axios.put(urlID, data);
         return res;
     };
-
+ 
     return {
         get,
         create,
         destroy,
-        update
+        update,
+        url
     };
 }

@@ -1,4 +1,5 @@
-export const helpHttp = () => {
+export const serviceFetch = () => {
+
     const customFetch = (endpoint, options) => {
         const defaultHeaders = {
             accept: "application/json"
@@ -23,7 +24,8 @@ export const helpHttp = () => {
         })).catch((err) => err);
 
     };
-    
+
+
     const get = (url, options = {}) => customFetch(url, options);
 
     const post = (url, options = {}) => {
@@ -40,7 +42,7 @@ export const helpHttp = () => {
         options.method = "DELETE";
         return customFetch(url, options);
     };
-
+ 
     return {
         get,
         post,

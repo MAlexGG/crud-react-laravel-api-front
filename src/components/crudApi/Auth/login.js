@@ -11,7 +11,8 @@ const initialLogin = {
 function Login() {
 
     const [login, setLogin] = useState(initialLogin);
-
+    //const [user, setUser] = useState(null);
+    
     const handleInput = (e) => {
         e.persist();
         setLogin({
@@ -32,6 +33,7 @@ function Login() {
             axios.post('/api/login', data).then(res => {
                 localStorage.setItem('auth_token', res.data.msg.token);
                 localStorage.setItem('auth_user', res.data.msg.user.name);
+                //setUser(res.data.msg.user.name);
                 alert(res.data.msg.msg);
                 window.location = '/crud-api';
             }).catch(error => {
@@ -50,6 +52,7 @@ function Login() {
                         <div className='card'>
                             <div className='card-header'>
                                 <h5 className='txt-title-form'>Please fill the form for log in</h5>
+                                <span>{user}</span>
                             </div>
                             <div className='card-body'>
                                 <form onSubmit={loginSubmit}>
@@ -77,4 +80,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;

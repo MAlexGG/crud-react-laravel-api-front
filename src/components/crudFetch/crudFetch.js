@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { helpHttp } from "../../helpers/helpHttp";
+import { serviceFetch } from "../../services/serviceFetch";
 import Navbar from "../navbar";
 import CrudFetchCards from "./crudFetchCards";
 import CrudFetchForm from "./crudFetchForm";
@@ -13,7 +13,7 @@ const CrudFetch = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    let api = helpHttp();
+    let api = serviceFetch();
     let url = "http://localhost:5000/cards";
 
     useEffect(() => {

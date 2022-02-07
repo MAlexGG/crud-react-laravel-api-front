@@ -1,51 +1,52 @@
 {
-    "cards": [{
-            "id": 1,
-            "imgName": "Waikiki Beach sunset",
-            "imgUser": "María",
-            "imgURL": "beach"
-        },
-        {
-            "id": 2,
-            "imgName": "Stars at night",
-            "imgUser": "Belén",
-            "imgURL": "stars"
-        },
-        {
-            "id": 3,
-            "imgName": "Mr. Moonlight",
-            "imgUser": "Ale",
-            "imgURL": "moon"
-        },
-        {
-            "id": 4,
-            "imgName": "Angkor temple",
-            "imgUser": "Lorenzo",
-            "imgURL": "angkor"
-        },
-        {
-            "id": 5,
-            "imgName": "Thailandia Beach",
-            "imgUser": "Alex",
-            "imgURL": "thai"
-        },
-        {
-            "id": 6,
-            "imgName": "Japanese street",
-            "imgUser": "MAGG",
-            "imgURL": "japan"
-        },
-        {
-            "id": 7,
-            "imgName": "Galapagos islands",
-            "imgUser": "Isabelita",
-            "imgURL": "galapagos"
-        },
-        {
-            "id": 8,
-            "imgName": "Aurora Borealis in Norway",
-            "imgUser": "María",
-            "imgURL": "aurora"
-        }
-    ]
+  "cards": [
+    {
+      "id": 1,
+      "imgName": "Waikiki Beach sunset",
+      "imgUser": "María",
+      "imgURL": "beach"
+    },
+    {
+      "id": 2,
+      "imgName": "Stars at night",
+      "imgUser": "Belén",
+      "imgURL": "stars"
+    },
+    {
+      "id": 3,
+      "imgName": "Mr. Moonlight",
+      "imgUser": "Ale",
+      "imgURL": "moon"
+    },
+    {
+      "id": 4,
+      "imgName": "Angkor temple",
+      "imgUser": "Lorenzo",
+      "imgURL": "angkor"
+    },
+    {
+      "id": 5,
+      "imgName": "Thailandia Beach",
+      "imgUser": "Alex",
+      "imgURL": "thai"
+    },
+    {
+      "id": 6,
+      "imgName": "Japanese street",
+      "imgUser": "MAGG",
+      "imgURL": "japan"
+    },
+    {
+      "id": 7,
+      "imgName": "Galapagos islands",
+      "imgUser": "Isabelita",
+      "imgURL": "galapagos"
+    },
+    {
+      "id": 8,
+      "imgName": "Aurora Borealis in Norway",
+      "imgUser": "María",
+      "imgURL": "aurora"
+    }
+  ]
 }
