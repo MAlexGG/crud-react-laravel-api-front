@@ -25,29 +25,33 @@ export const serviceFetch = () => {
 
     };
 
+    let url = "http://localhost:5000/cards";
+    
+    const get = (options = {}) => customFetch(url, options);
 
-    const get = (url, options = {}) => customFetch(url, options);
-
-    const post = (url, options = {}) => {
+    const post = (options = {}) => {
         options.method = "POST";
         return customFetch(url, options);
     };
     
-    const put = (url, options = {}) => {
+    const put = (data, options = {}) => {
         options.method = "PUT";
-        return customFetch(url, options);
+        let endpoint = `${url}/${data.id}`;
+        return customFetch(endpoint, options);
     };
 
-    const del = (url, options = {}) => {
+    const del = (id, options = {}) => {
         options.method = "DELETE";
-        return customFetch(url, options);
+        let endpoint = `${url}/${id}`;
+        return customFetch(endpoint, options);
     };
  
     return {
         get,
         post,
         put,
-        del
+        del,
+        url
     };
 
 }

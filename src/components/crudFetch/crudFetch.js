@@ -14,11 +14,10 @@ const CrudFetch = () => {
     const [loading, setLoading] = useState(false);
 
     let api = serviceFetch();
-    let url = "http://localhost:5000/cards";
 
     useEffect(() => {
         setLoading(true);
-        api.get(url).then((res) => {
+        api.get().then((res) => {
             if (!res.err) {
                 setDB(res);
                 setError(null);
@@ -28,7 +27,7 @@ const CrudFetch = () => {
             }
             setLoading(false);
         })
-    }, [url])
+    }, [api.url])
 
     const createData = (data) => {
         data.id = Date.now();
@@ -37,7 +36,7 @@ const CrudFetch = () => {
             headers: { "content-type": "application/json" }
         };
 
-        api.post(url, options).then((res) => {
+        api.post(options).then((res) => {
             if (!res.err) {
                 setDB([...db, res]) 
             } else {
@@ -47,13 +46,12 @@ const CrudFetch = () => {
     }
     
     const updateData = (data) => {
-        let endpoint = `${url}/${data.id}`;
         let options = {
             body: data,
             headers: { "content-type": "application/json" }
         };
 
-        api.put(endpoint, options).then((res) => {
+        api.put(data, options).then((res) => {
             if (!res.err) {
                 let newData = db.map(el => el.id === data.id ? data : el);
                 setDB([...db, res]);
@@ -69,12 +67,11 @@ const CrudFetch = () => {
         let isDelete = window.confirm(`Do you really want to delete the image with id: ${id}?`);
 
         if (isDelete) {
-            let endpoint = `${url}/${id}`;
             let options = {
             headers: { "content-type": "application/json" }
             }; 
             
-            api.del(endpoint, options).then((res) => {
+            api.del(id, options).then((res) => {
             if (!res.error) {
             let newData = db.filter(el => el.id !== id);
             setDB(newData);
