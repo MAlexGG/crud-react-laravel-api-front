@@ -32,6 +32,8 @@ function CrudApiForm() {
 
     const handleReset = (e) => {
         setForm(initialForm);
+        setImage([]);
+        setError([]);
     };
 
     const submitForm = (e) => {
