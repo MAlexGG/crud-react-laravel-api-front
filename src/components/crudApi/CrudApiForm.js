@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../navbar";
 import { serviceApi } from "../../services/serviceApi";
 import { useNavigate } from "react-router-dom";
+import back from "../../assets/ico/back.svg";
 
 const initialForm = {
     title: '',
@@ -50,12 +51,19 @@ function CrudApiForm() {
             setError(error.response.data.msg);
         })            
     };
+
+    const getBack = () => {
+        navigate('/crud-api');
+    };
     
 
     return (
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1" />
-            <h3 className='txt-title'>Create an new Card</h3>
+            <div className="ct-form-create">
+                <h3 className='txt-title'>Create an new Card</h3>
+                <button className="bt-back" onClick={getBack}><img className="ico-back" src={back} alt="back button" /></button>
+            </div>
             <div className='container py-5'>
                 <div className='row justify-content-center'>
                     <div className='col-md-6'>

@@ -5,16 +5,21 @@ import eye from "../../assets/ico/eye.svg";
 import edit from "../../assets/ico/edit.svg";
 import del from "../../assets/ico/delete.svg";
 import { serviceApi } from '../../services/serviceApi';
+import { Link } from "react-router-dom";
 
 const CrudApiCard = ({card}) => { 
     
     let { title, image, id } = card; 
-    let baseUrl = serviceApi().baseUrl;
+    let api = serviceApi()
 
+
+
+
+ 
     return (
         <div className='ct-card'>
             <div className="ct-card-img">
-                <img className="img-card" src={`http://${baseUrl}/storage/${image}`} alt={title} />
+                <img className="img-card" src={`http://${api.baseUrl}/storage/${image}`} alt={title} />
             </div>
                 <div className="ct-card-info">
                     <div className="ct-icons">
@@ -24,7 +29,7 @@ const CrudApiCard = ({card}) => {
                             <button className="bt-ico"><img className="img-ico" src={eye} alt="show button"/></button>
                         </div>
                         <div className="ct-icons-modify">
-                        <button className="bt-ico"><img className="img-ico" src={edit} alt="edit button" onClick={window.scrollTo(0, 0)} /></button>
+                            <Link className="bt-ico" to="/crud-api-form"><img className="img-ico" src={edit} alt="edit button" /></Link>
                             <button className="bt-ico"><img className="img-ico" src={del} alt="delete button"/></button>
                         </div>
                     </div>

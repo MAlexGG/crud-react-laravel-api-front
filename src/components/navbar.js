@@ -17,6 +17,8 @@ class Navbar extends Component{
                 alert(res.data.msg);
                 window.location = '/crud-api-login';
             }).catch(error => {
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('auth_user');
                 console.log(error);
             });
         };
@@ -33,6 +35,7 @@ class Navbar extends Component{
                             CRUD-API
                     </button></Link>
                     <button className="dropdown-toggle arrow-down" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
+
                     {localStorage.getItem('auth_token')
                         ?
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">

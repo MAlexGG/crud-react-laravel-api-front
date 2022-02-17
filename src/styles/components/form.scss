@@ -36,3 +36,19 @@
 .txt-label-form {
     color: $colorTertiary;
 }
+
+.ct-form-create {
+    @include displayFlex;
+    justify-content: space-between;
+}
+
+.bt-back {
+    background-color: transparent;
+    border: none;
+    margin: 5% 20px 0% 0%;
+}
+
+.ico-back {
+    width: 40px;
+    filter: $filterPrincipal;
+}
