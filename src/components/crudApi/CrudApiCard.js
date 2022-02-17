@@ -4,15 +4,17 @@ import heart from "../../assets/ico/heart.svg";
 import eye from "../../assets/ico/eye.svg";
 import edit from "../../assets/ico/edit.svg";
 import del from "../../assets/ico/delete.svg";
+import { serviceApi } from '../../services/serviceApi';
 
 const CrudApiCard = ({card}) => { 
     
     let { title, image, id } = card; 
+    let baseUrl = serviceApi().baseUrl;
 
     return (
         <div className='ct-card'>
             <div className="ct-card-img">
-                <img className="img-card" src={require(`../../assets/img/${ image }.jpg`).default} alt={image} />
+                <img className="img-card" src={`http://${baseUrl}/storage/${image}`} alt={title} />
             </div>
                 <div className="ct-card-info">
                     <div className="ct-icons">

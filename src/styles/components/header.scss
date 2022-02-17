@@ -39,4 +39,11 @@
 
 .nav-item {
     color: $colorTertiary !important;
+    cursor: pointer;
+}
+
+.arrow-down {
+    background-color: transparent;
+    border: none;
+    color: $colorPrincipal;
 }

@@ -12,16 +12,15 @@ function HomeApi() {
  
     useEffect(() => {
         api.get().then(res => {
-            console.log(res)
-            //setCards(res.data.data);
+            setCards(res.data.data);
         });
-    }, [])
+    }, [api.url]);
   
     return (
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1" />
             <h2 className="txt-title">CRUD consuming Api from Laravel</h2>
-            <Link to="/crud-api-create"><button className='bt-form-send'>Create Card</button></Link>
+            <Link to="/crud-api-form"><button className='bt-form-create'>Create Card</button></Link>
             <div className="ct-cards">
                 {
                     cards.map((card, index) => (

@@ -1,13 +1,17 @@
-import React, { Component, useContext } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import Login from "./crudApi/Auth/login";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";;
+import { serviceApi } from "../services/serviceApi";
+
 
 class Navbar extends Component{
+
     render() {
+
+        let api = serviceApi();
+
         const logoutSubmit = (e) => {
             e.preventDefault();
-            axios.post('/api/logout').then(res => {
+            api.logout().then(res => {
                 localStorage.removeItem('auth_token');
                 localStorage.removeItem('auth_user');
                 alert(res.data.msg);
@@ -23,10 +27,12 @@ class Navbar extends Component{
                 <Link to="/fake-crud" className={this.props.txtColor2}>FAKE-CRUD</Link>
                 <Link to="/crud-fetch" className={this.props.txtColor3}>CRUD-FETCH</Link>
                 <Link to="/crud-axios" className={this.props.txtColor4}>CRUD-AXIOS</Link>
+
                 <div className="dropdown">
-                    <button className={this.props.txtColor5} type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <Link to='/crud-api'><button className={this.props.txtColor5} type="button">
                             CRUD-API
-                    </button>
+                    </button></Link>
+                    <button className="dropdown-toggle arrow-down" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
                     {localStorage.getItem('auth_token')
                         ?
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">

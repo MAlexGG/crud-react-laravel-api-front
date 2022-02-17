@@ -11,23 +11,18 @@
 }
 
 .bt-form-send {
+    @include bt-fill;
     margin: 5px 5px 0px 0px;
-    background-color: $colorPrincipal;
-    border: none;
-    border-radius: 2px;
-    color: white;
-    width: 70px;
-    height: 30px;
 }
 
 .bt-form-reset {
+    @include bt-stroke;
     margin: 5px 5px 0px 0px;
-    background-color: white;
-    border: 1px solid $colorPrincipal;
-    border-radius: 2px;
-    color: $colorPrincipal;
-    width: 70px;
-    height: 30px;
+}
+
+.bt-form-create {
+    @include bt-fill;
+    margin: 20px;
 }
 
 .error-register {

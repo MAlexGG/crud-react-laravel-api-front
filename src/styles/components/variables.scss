@@ -92,3 +92,21 @@ $breakpointLarge: 992px;
         text-decoration: none;
     }
 }
+
+@mixin bt-fill {
+    background-color: $colorPrincipal;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    width: 70px;
+    height: 30px;
+}
+
+@mixin bt-stroke {
+    background-color: white;
+    border: 1px solid $colorPrincipal;
+    border-radius: 2px;
+    color: $colorPrincipal;
+    width: 70px;
+    height: 30px;
+}

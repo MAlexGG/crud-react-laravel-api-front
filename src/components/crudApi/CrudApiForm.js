@@ -1,27 +1,54 @@
 import React, { useState } from "react";
 import Navbar from "../navbar";
+import { serviceApi } from "../../services/serviceApi";
+import { useNavigate } from "react-router-dom";
 
 const initialForm = {
     title: '',
-    image: '',
     user: ''
 }
 
-
-function Create() {
+function CrudApiForm() {
 
     const [form, setForm] = useState(initialForm);
+    const [image, setImage] = useState([]);
+    const [error, setError] = useState([]);
+
+    let navigate = useNavigate();
+
+    let api = serviceApi();
 
     const handleChange = (e) => {
+        e.persist();
         setForm({
             ...form,
             [e.target.name]: e.target.value
         })
-    }
+    };
+
+    const handleImage = (e) => {
+        setImage({ image: e.target.files[0]})
+    };
 
     const handleReset = (e) => {
         setForm(initialForm);
-    } 
+    };
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('image', image.image);
+        formData.append('title', form.title);
+        formData.append('user', form.user);
+        api.create(formData).then((res) => {
+            alert(res.data.msg);
+            setError([]);
+            navigate('/crud-api');
+        }).catch((error) => {
+            setError(error.response.data.msg);
+        })            
+    };
+    
 
     return (
         <div>
@@ -35,19 +62,18 @@ function Create() {
                                 <h5 className='txt-title-form'>Please fill the form for create a card</h5>
                             </div>
                             <div className='card-body'>
-                                <form>
-                            
-                                    <div className='form-group mb-3'>
+                                <form onSubmit={submitForm}>
+                                    <div className='form-group'>
                                         <label className='txt-label-form'>Title</label>
                                         <input type="text" name='title' onChange={handleChange} value={form.title} className='form-control' />
-    
                                     </div>
-                                    <div className='form-group mb-3'>
+                                    <span className="error-register">{ error.title }</span>
+                                    <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
-                                        <input type="file" name='image' value={form.image} onChange={handleChange} className='form-control' />
-                                        
+                                        <input type="file" name='image' value={form.image} onChange={handleImage} className='form-control' /> 
                                     </div>
-                                    <div className='form-group mb-3'>
+                                    <span className="error-register">{ error.image }</span>
+                                    <div className='form-group my-3'>
                                         <button type='submit' className='bt-form-send'>Create</button>
                                         <button type="reset" className='bt-form-reset' onClick={handleReset}>Cancel</button>
                                     </div>
@@ -61,4 +87,4 @@ function Create() {
     )
 }
 
-export default Create;
+export default CrudApiForm;

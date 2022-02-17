@@ -12,9 +12,11 @@ axios.interceptors.request.use(function (config) {
 
 export const serviceApi = () => {
 
+    let baseUrl = "127.0.0.1:8000";
     let url = '/api/cards';
     let urlSignin = '/api/register';
     let urlLogin = '/api/login';
+    let urlLogout = '/api/logout';
     
     const get = async () => {
         const res = await axios.get(url);
@@ -46,6 +48,11 @@ export const serviceApi = () => {
     const login = async (data) => {
         const res = await axios.post(urlLogin, data);
         return res;
+    };
+
+    const logout = async () => {
+        const res = await axios.post(urlLogout);
+        return res;
     }
 
     return {
@@ -55,6 +62,8 @@ export const serviceApi = () => {
         update,
         signin,
         login,
-        url
+        logout,
+        url,
+        baseUrl
     };
 }
