@@ -1,23 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../navbar";
 import { serviceApi } from "../../services/serviceApi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import back from "../../assets/ico/back.svg";
 
 const initialForm = {
+    created_at: '',
+    id: '',
     title: '',
-    user: ''
-}
+    //user: ''
+};
 
-function CrudApiForm() {
+function CrudEditApiForm() {
 
     const [form, setForm] = useState(initialForm);
     const [image, setImage] = useState([]);
     const [error, setError] = useState([]);
 
+    let params = useParams();
     let navigate = useNavigate();
-
     let api = serviceApi();
+
+    useEffect(() => {
+        const cardId = params.id;
+        api.show(cardId).then((res) => {
+            setForm(res.data.data);
+            //setImage(res.data.data.image);
+        })
+    }, [params.id]);
+    
+
 
     const handleChange = (e) => {
         e.persist();
@@ -61,7 +73,7 @@ function CrudApiForm() {
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1" />
             <div className="ct-form-create">
-                <h3 className='txt-title'>Create an new Card</h3>
+                <h3 className='txt-title'>Edit the Card</h3>
                 <button className="bt-back" onClick={getBack}><img className="ico-back" src={back} alt="back button" /></button>
             </div>
             <div className='container py-5'>
@@ -69,22 +81,22 @@ function CrudApiForm() {
                     <div className='col-md-6'>
                         <div className='card'>
                             <div className='card-header'>
-                                <h5 className='txt-title-form'>Please fill the form for create a card</h5>
+                                <h5 className='txt-title-form'>Please fill the form for edit the card</h5>
                             </div>
                             <div className='card-body'>
                                 <form onSubmit={submitForm}>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Title</label>
-                                        <input type="text" name='title' onChange={handleChange} value={form.title} className='form-control' />
+                                        <input type="text" name='title' onChange={handleChange} value={form.title} className='form-control'/>
                                     </div>
                                     <span className="error-register">{ error.title }</span>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
-                                        <input type="file" name='image' value={form.image} onChange={handleImage} className='form-control' /> 
+                                        <input type="file" name='image' value='' onChange={handleImage} className='form-control' /> 
                                     </div>
                                     <span className="error-register">{ error.image }</span>
                                     <div className='form-group my-3'>
-                                        <button type='submit' className='bt-form-send'>Create</button>
+                                        <button type='submit' className='bt-form-send'>Update</button>
                                         <button type="reset" className='bt-form-reset' onClick={handleReset}>Cancel</button>
                                     </div>
                                 </form>
@@ -97,4 +109,4 @@ function CrudApiForm() {
     )
 }
 
-export default CrudApiForm;
+export default CrudEditApiForm;

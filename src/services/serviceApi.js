@@ -34,6 +34,12 @@ export const serviceApi = () => {
         return res;
     };
 
+    const show = async (id) => {
+        let urlID = `${url}/${id}`;
+        const res = await axios.get(urlID);
+        return res;
+    }
+
     const update = async (data) => {
         let urlID = `${url}/${data.id}`;
         const res = await axios.put(urlID, data);
@@ -59,6 +65,7 @@ export const serviceApi = () => {
         get,
         create,
         destroy,
+        show,
         update,
         signin,
         login,

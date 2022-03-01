@@ -24,7 +24,7 @@ function HomeApi() {
             <div className="ct-cards">
                 {
                     cards.map((card, index) => (
-                        <CrudApiCard key={index} card={card} />
+                        <CrudApiCard key={index} card={card}/>
                     ))
                 }
             </div>

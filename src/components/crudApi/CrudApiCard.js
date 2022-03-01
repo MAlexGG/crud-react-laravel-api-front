@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import star from "../../assets/ico/star.svg";
 import heart from "../../assets/ico/heart.svg";
 import eye from "../../assets/ico/eye.svg";
@@ -8,14 +8,20 @@ import { serviceApi } from '../../services/serviceApi';
 import { Link } from "react-router-dom";
 
 const CrudApiCard = ({card}) => { 
-    
+
     let { title, image, id } = card; 
-    let api = serviceApi()
+    let api = serviceApi();
 
+    const deleteCard = (e) => {
+        e.preventDefault();
+        api.destroy(id).then((res) => {
+            alert(res.data.msg);
+            window.location.reload();
+        }).catch((error) => {
+            alert(`${error.response.status}: ${error.response.statusText}`);
+        });
+    };
 
-
-
- 
     return (
         <div className='ct-card'>
             <div className="ct-card-img">
@@ -29,8 +35,9 @@ const CrudApiCard = ({card}) => {
                             <button className="bt-ico"><img className="img-ico" src={eye} alt="show button"/></button>
                         </div>
                         <div className="ct-icons-modify">
-                            <Link className="bt-ico" to="/crud-api-form"><img className="img-ico" src={edit} alt="edit button" /></Link>
-                            <button className="bt-ico"><img className="img-ico" src={del} alt="delete button"/></button>
+                        <Link className="bt-ico" to= {{pathname: `/crud-api-edit-form/${id}`, state: id}}
+                           ><img className="img-ico" src={edit} alt="edit button" /></Link>
+                            <button className="bt-ico" onClick={deleteCard}><img className="img-ico" src={del} alt="delete button"/></button>
                         </div>
                     </div>
                 <div className="ct-txt">

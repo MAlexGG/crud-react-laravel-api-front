@@ -7,7 +7,8 @@ import FakeCrud from "./fakeCrud/fakeCrud";
 import HomeApi from "./crudApi/homeApi";
 import Signin from "./crudApi/Auth/signin";
 import Login from "./crudApi/Auth/login";
-import CrudApiForm from "./crudApi/CrudApiForm";
+import CrudCreateApiForm from "./crudApi/CrudCreateApiForm";
+import CrudEditApiForm from "./crudApi/CrudEditApiForm";
 
 function Router() {
 
@@ -36,7 +37,8 @@ function Router() {
                 <Route path="/crud-api" element={<AuthCrud><HomeApi /></AuthCrud>} />
                 <Route path="/crud-api-signin" element={<AuthRoute><Signin/></AuthRoute>} />
                 <Route path="/crud-api-login" element={<AuthRoute><Login /></AuthRoute>} />
-                <Route path="/crud-api-form" element={<AuthCrud><CrudApiForm/></AuthCrud>}/>
+                <Route path="/crud-api-form" element={<AuthCrud><CrudCreateApiForm /></AuthCrud>} />
+                <Route path="/crud-api-edit-form/:id" element={<AuthCrud><CrudEditApiForm /></AuthCrud>}/>
             </Routes>
     </BrowserRouter>
     )
