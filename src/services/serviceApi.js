@@ -42,7 +42,7 @@ export const serviceApi = () => {
 
     const update = async (data) => {
         let urlID = `${url}/${data.id}`;
-        const res = await axios.put(urlID, data);
+        const res = await axios.post(urlID, data);
         return res;
     };
 

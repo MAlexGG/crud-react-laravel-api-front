@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import star from "../../assets/ico/star.svg";
 import heart from "../../assets/ico/heart.svg";
 import eye from "../../assets/ico/eye.svg";
@@ -35,7 +35,7 @@ const CrudApiCard = ({card}) => {
                             <button className="bt-ico"><img className="img-ico" src={eye} alt="show button"/></button>
                         </div>
                         <div className="ct-icons-modify">
-                        <Link className="bt-ico" to= {{pathname: `/crud-api-edit-form/${id}`, state: id}}
+                        <Link className="bt-ico" to= {`/crud-api-edit-form/${id}`}
                            ><img className="img-ico" src={edit} alt="edit button" /></Link>
                             <button className="bt-ico" onClick={deleteCard}><img className="img-ico" src={del} alt="delete button"/></button>
                         </div>
