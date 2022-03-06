@@ -56,7 +56,6 @@ function CrudCreateApiForm() {
         navigate('/crud-api');
     };
     
-
     return (
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1" />
@@ -66,7 +65,7 @@ function CrudCreateApiForm() {
             </div>
             <div className='container py-5'>
                 <div className='row justify-content-center'>
-                    <div className='col-md-6'>
+                    <div className='col-lg-6'>
                         <div className='card'>
                             <div className='card-header'>
                                 <h5 className='txt-title-form'>Please fill the form for create a card</h5>

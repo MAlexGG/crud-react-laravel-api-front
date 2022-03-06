@@ -69,7 +69,7 @@ function CrudEditApiForm() {
             </div>
             <div className='container py-5'>
                 <div className='row justify-content-center'>
-                    <div className='col-md-6'>
+                    <div className='col-lg-6'>
                         <div className='card'>
                             <div className='card-header'>
                                 <h5 className='txt-title-form'>Please fill the form to edit the selected card</h5>

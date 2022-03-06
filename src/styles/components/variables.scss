@@ -29,7 +29,7 @@ $breakpointLarge: 992px;
 
 @mixin txtTitle {
     color: $colorPrincipal;
-    margin: 16% 0px 0px 0px;
+    margin: 16% 0px 0px 10px;
     text-align: center;
     font-size: 1.1rem;
     @media (min-width: $breakpointMedium) {

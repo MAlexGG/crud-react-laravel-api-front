@@ -45,7 +45,15 @@
 .bt-back {
     background-color: transparent;
     border: none;
-    margin: 5% 20px 0% 0%;
+    margin: 16% 10px 0px 0px;
+    @media (min-width: $breakpointMedium) {
+        margin: 8% 20px 0px 0px;
+    }
+    @media (min-width: $breakpointLarge) {
+        margin: 5% 20px 0px 0px;
+        text-align: start;
+        font-size: 1.5rem;
+    }
 }
 
 .ico-back {
