@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import Navbar from "../navbar";
 import { serviceApi } from "../../services/serviceApi";
 import { useNavigate, useParams } from "react-router-dom";
@@ -25,8 +25,8 @@ function CrudEditApiForm() {
             alert(error.response.data.msg);
             navigate('/crud-api');
         });
-    }, [params.id])
-    
+    }, [params.id]);
+
     const handleChange = (e) => {
         e.persist();
         setForm({
@@ -37,23 +37,28 @@ function CrudEditApiForm() {
 
     const handleImage = (e) => {
         e.persist();
-        setImage({ image: e.target.files[0] })
+        setImage({ image: e.target.files[0] });
     };
 
     const getBack = () => {
         navigate('/crud-api');
     };
-
     const updateCard = (e) => {
         e.preventDefault();
-        api.update(form).then((res) => {
+        const cardId = params.id;
+        const formData = new FormData();
+        formData.append('image', image.image);
+        formData.append('title', form.title);
+        //formData.append('user', form.user);
+        api.update(cardId, formData).then((res) => {
             alert(res.data.msg);
             setError([]);
-            navigate('/crud-api')
+            navigate('/crud-api');
         }).catch((error) => {
             setError(error.response.data.msg);
-        })
+        });
     };
+
 
     return (
         <div>
@@ -70,17 +75,18 @@ function CrudEditApiForm() {
                                 <h5 className='txt-title-form'>Please fill the form to edit the selected card</h5>
                             </div>
                             <div className='card-body'>
-                                <form onSubmit={updateCard}>
+                                <form onSubmit={updateCard} encType="multipart/form-data">
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Title</label>
-                                        <input type="text" name='title' onChange={handleChange} value={form.title}  className='form-control' />
+                                        <input type="text" name='title' onChange={handleChange} value={form.title ?? ""} className='form-control' />
                                     </div>
                                     <span className="error-register">{ error.title }</span>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
-                                        <input type="file" name='image' onChange={handleImage} className='form-control' /> 
+                                        <input type="file" name='image' onChange={handleImage} className='form-control'/> 
+                                        <img src={`http://${api.baseUrl}/storage/${image}`} alt={form.title} width="100px" />
                                     </div>
-                                    <span className="error-register">{/* { error.image } */}</span>
+                                    <span className="error-register">{ error.image }</span>
                                     <div className='form-group my-3'>
                                         <button type='submit' className='bt-form-send'>Update</button>
                                         <button type="reset" className='bt-form-reset' /* onClick={handleReset} */>Cancel</button>

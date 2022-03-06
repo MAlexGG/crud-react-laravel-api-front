@@ -42,6 +42,7 @@ function CrudCreateApiForm() {
         formData.append('image', image.image);
         formData.append('title', form.title);
         formData.append('user', form.user);
+
         api.create(formData).then((res) => {
             alert(res.data.msg);
             setError([]);
@@ -71,7 +72,7 @@ function CrudCreateApiForm() {
                                 <h5 className='txt-title-form'>Please fill the form for create a card</h5>
                             </div>
                             <div className='card-body'>
-                                <form onSubmit={submitForm}>
+                                <form onSubmit={submitForm} encType="multipart/form-data">
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Title</label>
                                         <input type="text" name='title' onChange={handleChange} value={form.title} className='form-control' />
@@ -79,7 +80,7 @@ function CrudCreateApiForm() {
                                     <span className="error-register">{ error.title }</span>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
-                                        <input type="file" name='image' value={form.image} onChange={handleImage} className='form-control' /> 
+                                        <input type="file" name='image' onChange={handleImage} className='form-control' /> 
                                     </div>
                                     <span className="error-register">{ error.image }</span>
                                     <div className='form-group my-3'>
