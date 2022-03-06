@@ -3,6 +3,7 @@ import Navbar from "../navbar";
 import { serviceApi } from "../../services/serviceApi";
 import { useNavigate, useParams } from "react-router-dom";
 import back from "../../assets/ico/back.svg";
+import { Loader } from "./loader";
 
 
 
@@ -11,6 +12,7 @@ function CrudEditApiForm() {
     const [form, setForm] = useState([]);
     const [image, setImage] = useState([]);
     const [error, setError] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     let api = serviceApi();
     let navigate = useNavigate();
@@ -22,6 +24,7 @@ function CrudEditApiForm() {
             setForm(res.data.data);
             setImage(res.data.data.image);
         }).catch((error) => {
+            setLoading(false);
             alert(error.response.data.msg);
             navigate('/crud-api');
         });
@@ -40,6 +43,11 @@ function CrudEditApiForm() {
         setImage({ image: e.target.files[0] });
     };
 
+    const handleReset = (e) => {
+        setForm([]);
+        setError([]);
+    };
+
     const getBack = () => {
         navigate('/crud-api');
     };
@@ -55,14 +63,15 @@ function CrudEditApiForm() {
             setError([]);
             navigate('/crud-api');
         }).catch((error) => {
+            alert(`Error ${error.response.status}. Sorry, ${error.response.statusText}`)
             setError(error.response.data.msg);
         });
     };
 
-
     return (
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1" />
+            {loading && <Loader />}
             <div className="ct-form-create">
                 <h3 className='txt-title'>Edit the selected Card</h3>
                 <button className="bt-back" onClick={getBack}><img className="ico-back" src={back} alt="back button" /></button>
@@ -89,7 +98,7 @@ function CrudEditApiForm() {
                                     <span className="error-register">{ error.image }</span>
                                     <div className='form-group my-3'>
                                         <button type='submit' className='bt-form-send'>Update</button>
-                                        <button type="reset" className='bt-form-reset' /* onClick={handleReset} */>Cancel</button>
+                                        <button type="reset" className='bt-form-reset' onClick={handleReset}>Cancel</button>
                                     </div>
                                 </form>
                             </div>

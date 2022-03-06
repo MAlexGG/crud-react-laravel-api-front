@@ -48,6 +48,7 @@ function CrudCreateApiForm() {
             setError([]);
             navigate('/crud-api');
         }).catch((error) => {
+            alert(`Error ${error.response.status}. Sorry, ${error.response.statusText}`)
             setError(error.response.data.msg);
         })            
     };
