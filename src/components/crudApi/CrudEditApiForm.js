@@ -6,13 +6,11 @@ import back from "../../assets/ico/back.svg";
 import { Loader } from "./loader";
 
 
-
 function CrudEditApiForm() {
 
     const [form, setForm] = useState([]);
     const [image, setImage] = useState([]);
     const [error, setError] = useState([]);
-    const [loading, setLoading] = useState(false);
 
     let api = serviceApi();
     let navigate = useNavigate();
@@ -24,7 +22,7 @@ function CrudEditApiForm() {
             setForm(res.data.data);
             setImage(res.data.data.image);
         }).catch((error) => {
-            setLoading(false);
+            alert(`Error ${error.response.status}. Sorry, ${error.response.statusText}`)
             alert(error.response.data.msg);
             navigate('/crud-api');
         });
@@ -71,7 +69,6 @@ function CrudEditApiForm() {
     return (
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1" />
-            {loading && <Loader />}
             <div className="ct-form-create">
                 <h3 className='txt-title'>Edit the selected Card</h3>
                 <button className="bt-back" onClick={getBack}><img className="ico-back" src={back} alt="back button" /></button>
