@@ -16,10 +16,10 @@ class Navbar extends Component{
                 localStorage.removeItem('auth_user');
                 alert(res.data.msg);
                 window.location = '/crud-api-login';
-            }).catch(error => {
+            }).catch((error) => {
                 localStorage.removeItem('auth_token');
                 localStorage.removeItem('auth_user');
-                console.log(error);
+                alert(error.response);
             });
         };
 
@@ -54,6 +54,3 @@ class Navbar extends Component{
 }
 
 export default Navbar;
-
-
-

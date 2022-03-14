@@ -3,7 +3,6 @@ import Navbar from "../navbar";
 import { serviceApi } from "../../services/serviceApi";
 import { useNavigate, useParams } from "react-router-dom";
 import back from "../../assets/ico/back.svg";
-import { Loader } from "./loader";
 
 
 function CrudEditApiForm() {
