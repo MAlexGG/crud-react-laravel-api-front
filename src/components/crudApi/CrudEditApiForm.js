@@ -54,6 +54,7 @@ function CrudEditApiForm() {
         const formData = new FormData();
         formData.append('image', image.image);
         formData.append('title', form.title);
+        formData.append('description', form.description);
         //formData.append('user', form.user);
         api.update(cardId, formData).then((res) => {
             alert(res.data.msg);
@@ -85,13 +86,18 @@ function CrudEditApiForm() {
                                         <label className='txt-label-form'>Title</label>
                                         <input type="text" name='title' onChange={handleChange} value={form.title ?? ""} className='form-control' />
                                     </div>
-                                    <span className="error-register">{ error.title }</span>
+                                    <span className="error-register">{error.title}</span>
+                                    <div className='form-group'>
+                                        <label className='txt-label-form'>Description</label>
+                                        <textarea type="text" name='description' onChange={handleChange} value={form.description ?? ""} className='form-control txtArea' />
+                                    </div>
+                                    <span className="error-register">{error.description}</span>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
                                         <input type="file" name='image' onChange={handleImage} className='form-control'/> 
                                         <img src={`http://${api.baseUrl}/storage/${image}`} alt={form.title} width="100px" />
                                     </div>
-                                    <span className="error-register">{ error.image }</span>
+                                    <span className="error-register">{error.image}</span>
                                     <div className='form-group my-3'>
                                         <button type='submit' className='bt-form-send'>Update</button>
                                         <button type="reset" className='bt-form-reset' onClick={handleReset}>Cancel</button>

@@ -42,6 +42,7 @@ function CrudCreateApiForm() {
         const formData = new FormData();
         formData.append('image', image.image);
         formData.append('title', form.title);
+        formData.append('description', form.description);
         formData.append('user', form.user);
 
         api.create(formData).then((res) => {
@@ -78,12 +79,17 @@ function CrudCreateApiForm() {
                                         <label className='txt-label-form'>Title</label>
                                         <input type="text" name='title' onChange={handleChange} value={form.title} className='form-control' />
                                     </div>
-                                    <span className="error-register">{ error.title }</span>
+                                    <span className="error-register">{error.title}</span>
+                                    <div className='form-group'>
+                                        <label className='txt-label-form'>Description</label>
+                                        <textarea type="text" name='description' onChange={handleChange} value={form.description} className='form-control txtArea' />
+                                    </div>
+                                    <span className="error-register">{ error.description }</span>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
                                         <input type="file" name='image' onChange={handleImage} className='form-control' /> 
                                     </div>
-                                    <span className="error-register">{ error.image }</span>
+                                    <span className="error-register">{error.image}</span>
                                     <div className='form-group my-3'>
                                         <button type='submit' className='bt-form-send'>Create</button>
                                         <button type="reset" className='bt-form-reset' onClick={handleReset}>Cancel</button>

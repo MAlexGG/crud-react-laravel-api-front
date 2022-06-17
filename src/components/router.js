@@ -9,6 +9,7 @@ import Signin from "./crudApi/Auth/signin";
 import Login from "./crudApi/Auth/login";
 import CrudCreateApiForm from "./crudApi/CrudCreateApiForm";
 import CrudEditApiForm from "./crudApi/CrudEditApiForm";
+import CrudApiDetail from "./crudApi/CrudApiDetail";
 
 function Router() {
 
@@ -38,7 +39,8 @@ function Router() {
                 <Route path="/crud-api-signin" element={<AuthRoute><Signin/></AuthRoute>} />
                 <Route path="/crud-api-login" element={<AuthRoute><Login /></AuthRoute>} />
                 <Route path="/crud-api-form" element={<AuthCrud><CrudCreateApiForm /></AuthCrud>} />
-                <Route path="/crud-api-edit-form/:id" element={<AuthCrud><CrudEditApiForm /></AuthCrud>}/>
+                <Route path="/crud-api-edit-form/:id" element={<AuthCrud><CrudEditApiForm /></AuthCrud>} />
+                <Route path="/crud-api-detail/:id" element={<CrudApiDetail/>}/>
             </Routes>
     </BrowserRouter>
     )

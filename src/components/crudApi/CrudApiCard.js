@@ -31,8 +31,9 @@ const CrudApiCard = ({card}) => {
                     <div className="ct-icons">
                         <div className="ct-icons-like">
                             <button className="bt-ico"><img className="img-ico" src={star} alt="star value button"/></button>
-                            <button className="bt-ico"><img className="img-ico" src={heart} alt="love button"/></button>
-                            <button className="bt-ico"><img className="img-ico" src={eye} alt="show button"/></button>
+                            <button className="bt-ico"><img className="img-ico" src={heart} alt="love button" /></button>
+                            <Link className="bt-ico" to= {`/crud-api-detail/${id}`}><img className="img-ico" src={eye} alt="show button"/></Link>
+                            {/* <button className="bt-ico"><img className="img-ico" src={eye} alt="show button"/></button> */}
                         </div>
                         <div className="ct-icons-modify">
                         <Link className="bt-ico" to= {`/crud-api-edit-form/${id}`}
