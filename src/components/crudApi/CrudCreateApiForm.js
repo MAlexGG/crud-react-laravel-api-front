@@ -14,6 +14,7 @@ function CrudCreateApiForm() {
     const [form, setForm] = useState(initialForm);
     const [image, setImage] = useState([]);
     const [error, setError] = useState([]);
+    const [imagePrev, setImagePrev] = useState('');
 
     let navigate = useNavigate();
     let api = serviceApi();
@@ -27,13 +28,24 @@ function CrudCreateApiForm() {
     };
 
     const handleImage = (e) => {
-        setImage({ image: e.target.files[0]})
+        setImage({ image: e.target.files[0] });
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImagePrev(reader.result);
+        };
+        if (e.target.files[0]) {
+            reader.readAsDataURL(e.target.files[0]);
+            setImagePrev(reader.result);
+        } else {
+            setImagePrev('');
+        };
     };
 
     const handleReset = (e) => {
         setForm(initialForm);
         setImage([]);
         setError([]);
+        setImagePrev();
     };
 
     const submitForm = (e) => {
@@ -89,6 +101,11 @@ function CrudCreateApiForm() {
                                         <input type="file" name='image' onChange={handleImage} className='form-control' /> 
                                     </div>
                                     <span className="error-register">{error.image}</span>
+                                    {!imagePrev ? null :
+                                        <div className="ct-img-prev">
+                                            <img src={imagePrev} alt='add an image...' className="img-prev" />
+                                        </div>
+                                    }
                                     <div className='form-group my-3'>
                                         <button type='submit' className='bt-form-send'>Create</button>
                                         <button type="reset" className='bt-form-reset' onClick={handleReset}>Cancel</button>
