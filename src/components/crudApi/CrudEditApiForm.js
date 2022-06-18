@@ -10,6 +10,7 @@ function CrudEditApiForm() {
     const [form, setForm] = useState([]);
     const [image, setImage] = useState([]);
     const [error, setError] = useState([]);
+    const [imagePrev, setImagePrev] = useState('');
 
     let api = serviceApi();
     let navigate = useNavigate();
@@ -40,13 +41,26 @@ function CrudEditApiForm() {
         if (image != `img/${e.target.files[0].name}`) {
             setImage({ image: e.target.files[0] });
         } else {
-            setImage({image: image});
-        }
+            setImage(image);
+        };
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImagePrev(reader.result);
+        };
+        if (e.target.files[0]) {
+            reader.readAsDataURL(e.target.files[0]);
+            setImagePrev(reader.result);
+        } else {
+            setImagePrev('');
+        };
     };
 
     const handleReset = (e) => {
         setForm([]);
         setError([]);
+        setImage([]);
+        setImagePrev([]);
     };
 
     const getBack = () => {
@@ -102,8 +116,16 @@ function CrudEditApiForm() {
                                     <span className="error-register">{error.description}</span>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
-                                        <input type='file' name='image' onChange={handleImage} className='form-control'/> 
-                                        <img src={`http://${api.baseUrl}/storage/${image}`} alt={form.title} width="100px" />
+                                        <input type='file' name='image' onChange={handleImage} className='form-control' /> 
+                                        <div className="ct-img-prev">
+                                            {
+                                                !imagePrev
+                                                    ? 
+                                                    <img src={`http://${api.baseUrl}/storage/${image}`} alt={form.title} className="img-prev" />   
+                                                    :
+                                                    <img src={imagePrev} alt='add a new image please...' className="img-prev" />
+                                            }
+                                        </div>
                                     </div>
                                     <span className="error-register">{error.image}</span>
                                     <div className='form-group my-3'>

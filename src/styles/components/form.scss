@@ -64,3 +64,16 @@
 .txtArea {
     height: 150px;
 }
+
+.ct-img-prev {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.img-prev {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
