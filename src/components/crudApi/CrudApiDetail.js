@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import { serviceApi } from '../../services/serviceApi';
-import Navbar from '../navbar'
+import Navbar from '../navbar';
+import back from '../../assets/ico/back.svg';
+import { Link } from "react-router-dom";
 
 function CrudApiDetail() {
 
@@ -29,13 +31,13 @@ function CrudApiDetail() {
         <img className='img-detail' src={`http://${api.baseUrl}/storage/${card.image}`} alt={card.title} />
       </div>
       <div className='ct-detail-txt'>
-          <h2 className='txt-detail-title'>{card.title}</h2>
+          <div className='ct-detail-title'>
+            <h2>{card.title}</h2>
+            <Link to='/crud-api'><img src={back} alt="back button" className='ico-back'/></Link>
+          </div>  
           <p className='txt-detail-info'>{card.description}</p>
         </div>
-      </div>
-      
-      
-          
+      </div>   
       </>
   )
 }

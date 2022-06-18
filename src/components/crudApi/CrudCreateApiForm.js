@@ -27,7 +27,6 @@ function CrudCreateApiForm() {
     };
 
     const handleImage = (e) => {
-        console.log(e.target.files[0]);
         setImage({ image: e.target.files[0]})
     };
 

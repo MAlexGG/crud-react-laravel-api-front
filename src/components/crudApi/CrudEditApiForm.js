@@ -37,7 +37,11 @@ function CrudEditApiForm() {
 
     const handleImage = (e) => {
         e.persist();
-        setImage({ image: e.target.files[0] });
+        if (image != `img/${e.target.files[0].name}`) {
+            setImage({ image: e.target.files[0] });
+        } else {
+            setImage({image: image});
+        }
     };
 
     const handleReset = (e) => {
@@ -52,7 +56,11 @@ function CrudEditApiForm() {
         e.preventDefault();
         const cardId = params.id;
         const formData = new FormData();
-        formData.append('image', image.image);
+        if (typeof image === 'string') {
+            formData.append('image', image);
+        } else {
+            formData.append('image', image.image);
+        } 
         formData.append('title', form.title);
         formData.append('description', form.description);
         //formData.append('user', form.user);
@@ -94,7 +102,7 @@ function CrudEditApiForm() {
                                     <span className="error-register">{error.description}</span>
                                     <div className='form-group'>
                                         <label className='txt-label-form'>Image</label>
-                                        <input type="file" name='image' onChange={handleImage} className='form-control'/> 
+                                        <input type='file' name='image' onChange={handleImage} className='form-control'/> 
                                         <img src={`http://${api.baseUrl}/storage/${image}`} alt={form.title} width="100px" />
                                     </div>
                                     <span className="error-register">{error.image}</span>

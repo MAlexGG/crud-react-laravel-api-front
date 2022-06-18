@@ -43,7 +43,9 @@
     }
 }
 
-.txt-detail-title {
+.ct-detail-title {
+    @include displayFlex();
+    justify-content: space-between;
     width: 100%;
     height: 60px;
     background: $colorCard;
