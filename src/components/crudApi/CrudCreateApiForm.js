@@ -103,7 +103,7 @@ function CrudCreateApiForm() {
                                     <span className="error-register">{error.image}</span>
                                     {!imagePrev ? null :
                                         <div className="ct-img-prev">
-                                            <img src={imagePrev} alt='add an image...' className="img-prev" />
+                                            <img src={imagePrev} alt='new image' className="img-prev" />
                                         </div>
                                     }
                                     <div className='form-group my-3'>

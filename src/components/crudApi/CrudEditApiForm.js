@@ -123,7 +123,7 @@ function CrudEditApiForm() {
                                                     ? 
                                                     <img src={`http://${api.baseUrl}/storage/${image}`} alt={form.title} className="img-prev" />   
                                                     :
-                                                    <img src={imagePrev} alt='add a new image please...' className="img-prev" />
+                                                    <img src={imagePrev} alt='add an image please...' className="img-prev" />
                                             }
                                         </div>
                                     </div>

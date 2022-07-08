@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "../App";
-import CrudFetch from "./crudFetch/crudFetch";
-import CrudAxios from "./crudAxios/crudAxios";
-import FakeCrud from "./fakeCrud/fakeCrud";
-import HomeApi from "./crudApi/homeApi";
-import Signin from "./crudApi/Auth/signin";
-import Login from "./crudApi/Auth/login";
-import CrudCreateApiForm from "./crudApi/CrudCreateApiForm";
-import CrudEditApiForm from "./crudApi/CrudEditApiForm";
-import CrudApiDetail from "./crudApi/CrudApiDetail";
+import CrudFetch from "../components/crudFetch/crudFetch";
+import CrudAxios from "../components/crudAxios/crudAxios";
+import FakeCrud from "../components/fakeCrud/fakeCrud";
+import HomeApi from "../components/crudApi/homeApi";
+import Signin from "../components/crudApi/Auth/signin";
+import Login from "../components/crudApi/Auth/login";
+import CrudCreateApiForm from "../components/crudApi/CrudCreateApiForm";
+import CrudEditApiForm from "../components/crudApi/CrudEditApiForm";
+import CrudApiDetail from "../components/crudApi/CrudApiDetail";
 
 function Router() {
 
