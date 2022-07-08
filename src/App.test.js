@@ -6,3 +6,6 @@ test('renders reading a json file', () => {
   const linkElement = screen.getByText(/Photos - Reading a json file/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+
+
