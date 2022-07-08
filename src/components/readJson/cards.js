@@ -3,6 +3,8 @@ import Card from "./card";
 
 class Cards extends Component {
     render() {
+
+        console.log(this.props.data);
         return (
             <div className="ct-cards">
                 {this.props.data.cards.map((card, index) => (

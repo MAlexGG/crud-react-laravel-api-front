@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import star from "../assets/ico/star.svg";
-import heart from "../assets/ico/heart.svg";
-import eye from "../assets/ico/eye.svg";
-import edit from "../assets/ico/edit.svg";
-import del from "../assets/ico/delete.svg";
+import star from "../../assets/ico/star.svg";
+import heart from "../../assets/ico/heart.svg";
+import eye from "../../assets/ico/eye.svg";
+import edit from "../../assets/ico/edit.svg";
+import del from "../../assets/ico/delete.svg";
 
 class Card extends Component {
     render() {
@@ -11,7 +11,7 @@ class Card extends Component {
             <div>
                 <div className="ct-card">
                     <div className="ct-card-img">
-                        <img className="img-card" src={require(`../assets/img/${ this.props.imgURL }.jpg`).default} alt={this.props.imgName} />
+                        <img className="img-card" src={require(`../../assets/img/${ this.props.imgURL }.jpg`).default} alt={this.props.imgName} />
                     </div>
                     <div className="ct-card-info">
                         <div className="ct-icons">

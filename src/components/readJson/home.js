@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Cards from "./cards";
-import Navbar from "./navbar";
-import data from "../assets/data/cards.json";
+import Navbar from "../navbar";
+import data from "../../assets/data/cards.json";
 
 class Home extends Component {
     state = {
         cards: data
     }
+
     render() {
         return (
             <div>
