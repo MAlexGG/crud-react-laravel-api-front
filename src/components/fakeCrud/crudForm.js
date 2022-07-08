@@ -56,6 +56,7 @@ const CrudForm = ({createData, updateData, editData, setEditData}) => {
             <form onSubmit={handleSubmit} className='form-create'>
                 <input
                     type="text"
+                    aria-label="imgName" 
                     name="imgName"
                     placeholder='Image name'
                     onChange={handleChange}
@@ -64,6 +65,7 @@ const CrudForm = ({createData, updateData, editData, setEditData}) => {
                 />
                 <input
                     type="text"
+                    aria-label="imgUser"
                     name="imgUser"
                     placeholder='Image user'
                     onChange={handleChange}
@@ -72,6 +74,7 @@ const CrudForm = ({createData, updateData, editData, setEditData}) => {
                 />
                 <input
                     type="text"
+                    aria-label="imgURL"
                     name="imgURL"
                     placeholder='Image URL'
                     onChange={handleChange}
@@ -79,8 +82,8 @@ const CrudForm = ({createData, updateData, editData, setEditData}) => {
                     className='inpt-create'
                 />
                 <div className='bt-group'>
-                    <input type="submit" value="send" className='bt-form-send' />
-                    <input type="reset" value="reset" onClick={handleReset} className='bt-form-reset' />
+                    <button type="submit" className='bt-form-send'>send</button>
+                    <button type="reset" onClick={handleReset} className='bt-form-reset'>reset</button>
                 </div>
             </form>
         </div>
