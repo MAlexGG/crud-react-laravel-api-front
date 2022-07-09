@@ -11,7 +11,7 @@ const crudAxios = () => {
     const [editData, setEditData] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    let api = serviceAxios();
+    const api = serviceAxios();
 
     useEffect(() => {
         setLoading(true);

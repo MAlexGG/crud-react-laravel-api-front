@@ -38,7 +38,6 @@ const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
         } else {
             updateData(form);
         }
-
         handleReset();
     };
     
@@ -54,6 +53,7 @@ const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
             <form onSubmit={handleSubmit} className='form-create'>
                 <input
                     type="text"
+                    aria-label='imgName'
                     name="imgName"
                     placeholder='Image name'
                     onChange={handleChange}
@@ -62,6 +62,7 @@ const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
                 />
                 <input
                     type="text"
+                    aria-label='imgUser'
                     name="imgUser"
                     placeholder='Image user'
                     onChange={handleChange}
@@ -70,6 +71,7 @@ const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
                 />
                 <input
                     type="text"
+                    aria-label='imgURL'
                     name="imgURL"
                     placeholder='Image URL'
                     onChange={handleChange}
@@ -77,8 +79,8 @@ const CrudAxiosForm = ({createData, editData, setEditData, updateData}) => {
                     className='inpt-create'
                 />
                 <div className='bt-group'>
-                    <input type="submit" value="send" className='bt-form-send' />
-                    <input type="reset" value="reset" onClick={handleReset} className='bt-form-reset' />
+                    <button type="submit" className='bt-form-send'>send</button>
+                    <button type="reset" onClick={handleReset} className='bt-form-reset'>reset</button>
                 </div>
             </form>
         </div>
