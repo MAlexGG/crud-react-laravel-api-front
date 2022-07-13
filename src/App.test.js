@@ -1,10 +1,23 @@
 import { render, screen } from '@testing-library/react';
 import Router from './application/router';
 
-test('renders reading a json file', () => {
+beforeEach(() => {
   render(<Router/>);
+});
+
+test('renders reading a json file', () => {
   const linkElement = screen.getByText(/Photos - Reading a json file/i);
   expect(linkElement).toBeInTheDocument();
+});
+
+test('renders read-json tab', () => {
+  const tab = screen.getByText(/read-json/i);
+  expect(tab).toBeInTheDocument();
+});
+
+test('renders read-json button', () => {
+  const button = screen.getByRole('link', {name: /read-json/i});
+  expect(button).toBeInTheDocument();
 });
 
 //screen.find -> es para encontrar elementos asíncronos
