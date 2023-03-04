@@ -14,7 +14,14 @@ const initialDB = [
             "imgName": "Stars at night",
             "imgUser": "Belén",
             "imgURL": "stars"
-        }
+        },
+        {
+            "id": 3,
+            "imgName": "Mr. Moonlight",
+            "imgUser": "Alex",
+            "imgURL": "moon"
+        },
+        
 ];
 
 const Crud = () => {

@@ -41,10 +41,12 @@ function Signin() {
                 alert(res.data.msg);
                 navigate('/crud-api-login', { replace: true });
             }).catch(error => {
-                setRegister({...register, error_list: error.response.data.msg})
+                setRegister({ ...register, error_list: error.response.data.message })
+                
             });
         }, [])
     }
+
 
     return (
         <div>
@@ -71,7 +73,7 @@ function Signin() {
                                     </div>
                                     <div className='form-group mb-3'>
                                         <label className='txt-label-form'>Password</label>
-                                        <input type="" name='password' onChange={handleInput} value={register.password} className='form-control' />
+                                        <input type="password" name='password' onChange={handleInput} value={register.password} className='form-control' />
                                         <span className='error-register'>{register.error_list.password}</span>
                                     </div>
                                     <div className='form-group mb-3'>

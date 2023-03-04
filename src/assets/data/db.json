@@ -13,40 +13,16 @@
       "imgURL": "stars"
     },
     {
-      "id": 3,
       "imgName": "Mr. Moonlight",
-      "imgUser": "Ale",
-      "imgURL": "moon"
-    },
-    {
-      "id": 4,
-      "imgName": "Angkor temple",
-      "imgUser": "Lorenzo",
-      "imgURL": "angkor"
-    },
-    {
-      "id": 5,
-      "imgName": "Thailandia Beach",
       "imgUser": "Alex",
-      "imgURL": "thai"
+      "imgURL": "moon",
+      "id": 1671890424876
     },
     {
-      "id": 6,
-      "imgName": "Japanese street",
-      "imgUser": "MAGG",
-      "imgURL": "japan"
-    },
-    {
-      "id": 7,
-      "imgName": "Galapagos islands",
-      "imgUser": "Isabelita",
-      "imgURL": "galapagos"
-    },
-    {
-      "id": 8,
-      "imgName": "Aurora Borealis in Norway",
-      "imgUser": "María",
-      "imgURL": "aurora"
+      "imgName": "Tailandia en verano",
+      "imgUser": "Alexandra",
+      "imgURL": "thai",
+      "id": 1671891616187
     }
   ]
 }

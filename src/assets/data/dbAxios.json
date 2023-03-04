@@ -14,39 +14,15 @@
     },
     {
       "id": 3,
-      "imgName": "Full Moon",
-      "imgUser": "Andre",
+      "imgName": "Mr. Moonlight",
+      "imgUser": "Alex",
       "imgURL": "moon"
     },
     {
-      "id": 4,
-      "imgName": "Angkor temple",
-      "imgUser": "Eli",
-      "imgURL": "angkor"
-    },
-    {
-      "id": 5,
-      "imgName": "Thailandia Beach",
+      "imgName": "Galápagos",
       "imgUser": "Alex",
-      "imgURL": "thai"
-    },
-    {
-      "id": 6,
-      "imgName": "Japanese street",
-      "imgUser": "MAGG",
-      "imgURL": "japan"
-    },
-    {
-      "id": 7,
-      "imgName": "Galapagos islands",
-      "imgUser": "Isabelita",
-      "imgURL": "galapagos"
-    },
-    {
-      "id": 8,
-      "imgName": "Aurora Borealis in Norway",
-      "imgUser": "María Alexandra",
-      "imgURL": "aurora"
+      "imgURL": "galapagos",
+      "id": 4
     }
   ]
 }

@@ -42,11 +42,11 @@ function Login() {
                 alert(res.data.msg.msg);
                 navigate('/crud-api', { replace: true });
             }).catch(error => {
-                setLogin({...login, error_list:error.response.data.msg})
+                setLogin({ ...login, error_list: error.response.data.msg })
             });
         }, [])
     }
-
+    
     return (
         <div>
             <Navbar txtColor1="txtColor2" txtColor2="txtColor2" txtColor3="txtColor2" txtColor4="txtColor2" txtColor5="txtColor1"/>
