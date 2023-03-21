@@ -38,8 +38,10 @@ function Signin() {
         axios.get('/sanctum/csrf-cookie').then(res => {
             api.signin(data).then(res => {
                 setRegister({ ...register, data });
+                localStorage.setItem('auth_token', res.data.token);
+                localStorage.setItem('auth_user', res.data.user.name);
                 alert(res.data.msg);
-                navigate('/crud-api-login', { replace: true });
+                navigate('/crud-api', { replace: true });
             }).catch(error => {
                 setRegister({ ...register, error_list: error.response.data.message })
                 
